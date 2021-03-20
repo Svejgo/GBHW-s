@@ -19,13 +19,13 @@ template <class T>
 };
 
 
-int main()
-{
-	Pair1<int32_t> p1(5, 4);
-	Pair1<double> p2(6.4, 9.2);
-	std::cout << "pair: " << p1.First() << ' ' << p1.Second() << '\n';
-	std::cout << "pair: " << p2.First() << ' ' << p2.Second() << '\n';
-	return 0;
-}
+//int main()
+//{
+//	Pair1<int32_t> p1(5, 4);
+//	Pair1<double> p2(6.4, 9.2);
+//	std::cout << "pair: " << p1.First() << ' ' << p1.Second() << '\n';
+//	std::cout << "pair: " << p2.First() << ' ' << p2.Second() << '\n';
+//	return 0;
+//}
 
 
