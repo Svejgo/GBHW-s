@@ -21,7 +21,7 @@ public:
 };
 
 //template<class T>
-//class StringValuePair : Pair  // << вот здесь по€вл€лась ошибка C2955 - 'Pair': use of class template requires template argument list.    сожалению € не смог разобратьс€, как именно указать аргументы
+//class StringValuePair : Pair  // << here was C2955 - 'Pair': use of class template requires template argument list. Cant understand what (and how) arguments i need to write here
 //{
 //protected:
 //	std::string m_First;
