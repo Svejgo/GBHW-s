@@ -10,7 +10,7 @@ class Pair
 {
 protected:
 	T m_First;
-	S m_Second;
+	S m_Second; 
 public:
 	Pair<T, S>(T first, S second)
 		: m_First(first), m_Second(second)
