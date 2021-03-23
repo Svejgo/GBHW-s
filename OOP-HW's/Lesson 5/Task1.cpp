@@ -2,7 +2,6 @@
 #include <cstdint>
 
 template <class T>
-//template <typename U> class Pair<int32_t, U>{};
 
  class Pair1
 {
@@ -27,5 +26,4 @@ template <class T>
 //	std::cout << "pair: " << p2.First() << ' ' << p2.Second() << '\n';
 //	return 0;
 //}
-
 

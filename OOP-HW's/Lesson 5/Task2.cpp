@@ -19,14 +19,14 @@ public:
 };
 
 
-int main()
-{
-	Pair<int32_t, double> p1(6, 7.8);
-	Pair<double, int32_t> p2(3.4, 5);
-
-	std::cout << "Pair: " << p1.First() << ' ' << p1.Second() << std::endl;
-	std::cout << "Pair: " << p2.First() << ' ' << p2.Second() << std::endl;
-
-	return 0;
-}
+//int main()
+//{
+//	Pair<int32_t, double> p1(6, 7.8);
+//	Pair<double, int32_t> p2(3.4, 5);
+//
+//	std::cout << "Pair: " << p1.First() << ' ' << p1.Second() << std::endl;
+//	std::cout << "Pair: " << p2.First() << ' ' << p2.Second() << std::endl;
+//
+//	return 0;
+//}
 

@@ -5,10 +5,9 @@
 
 	enum Value
 	{
-		
-		Two = 2, Three, Four, Five, Six, Seven, Eight, Nine, Ten,
-		Jack = 10, Queen = 10, King = 10,
-		Ace = 11		
+		Ace = 1,
+		Two, Three, Four, Five, Six, Seven, Eight, Nine, Ten,
+		Jack = 10, Queen = 10, King = 10			
 	};
 	enum Suit
 	{
@@ -42,7 +41,6 @@ class Hand
 		{
 			std::vector<Card*> EmptyHand{};
 			m_Hand = EmptyHand;
-			EmptyHand.clear();
 		}
 		void Add(Card& card)
 		{
@@ -59,24 +57,38 @@ class Hand
 			{
 				int32_t SumValue = 0;
 				Card TempCard;
-				bool AceCheck = false;
-				int32_t AceCounter = 0;
 				
 				for(uint32_t i = 0; i < m_Hand.size(); i++)
 				{
 					TempCard = *m_Hand[i];
-					SumValue += static_cast<int32_t>(TempCard.GetValue());
+					int32_t AceValue;
 					if(TempCard.GetValue() == Ace)
 					{
-						AceCheck = true;
-						++AceCounter;
+						do{
+						std::cout << "You have Ace on hand, choose his value: \n1. 1\n2. 11\n";
+						std::cin >> AceValue;
+						switch(AceValue)
+							{
+							case 1:
+								SumValue += 1;
+								break;
+							case 2:
+								SumValue += 11;
+								break;
+							default:
+								std::cout << "Wrong choice, choose ";
+								break;
+							}
+						}
+						while(AceValue > 2 || AceValue < 1);
+							
 					}
+					else
+						{
+							SumValue += static_cast<int32_t>(TempCard.GetValue());
+						}
 				}
-				if(AceCheck && SumValue > 21)
-				{
-					SumValue -= 10*AceCounter;
-				}
-			return SumValue;	
+				return SumValue;
 			}
 		}
 		
@@ -103,7 +115,7 @@ int main()
 {
 	Card card;
 	Card card1(Jack, Diamonds);
-	Card card2(Ace, Clubs);
+	Card card2(Eight, Clubs);
 	Hand hand;
 	hand.PrintHand();
 

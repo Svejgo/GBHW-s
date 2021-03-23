@@ -1,5 +1,7 @@
+#if !defined CARD_H
+#define CARD_H
 #include <cstdint>
-#include <string>
+#pragma once 
 
 	enum Value
 	{
@@ -12,17 +14,16 @@
 		Clubs, Heart, Diamonds, Spades
 	};
 
+
 class Card
 {
-	private:
-		Value m_Value{};
-		Suit m_Suit{};
-		bool m_FaceUp = 0;	
 	public:
-		Card(Value CardValue = Ace, Suit CardSuit = Clubs)
-		:m_Value(CardValue),m_Suit(CardSuit)
-		{}
-	
-	void Flip() { m_FaceUp == 0 ? m_FaceUp = 1 : m_FaceUp = 0; }
-	int32_t GetValue() const { return m_Value; }
+	Card(Value CardValue = Ace, Suit CardSuit = Clubs);
+	void Flip(); 
+	int32_t GetValue(); 
 };
+
+
+
+
+#endif
