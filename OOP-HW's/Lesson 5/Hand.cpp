@@ -1,43 +1,15 @@
 #include <iostream>
 #include <cstdint>
 #include <vector>
-
-
-	enum Value
-	{
-		
-		Two = 2, Three, Four, Five, Six, Seven, Eight, Nine, Ten,
-		Jack = 10, Queen = 10, King = 10,
-		Ace = 11		
-	};
-	enum Suit
-	{
-		Clubs, Heart, Diamonds, Spades
-	};
-
-class Card
-{
-	private:
-		Value m_Value{};
-		Suit m_Suit{};
-		bool m_FaceUp = 0;	
-	public:
-		Card(Value CardValue = Ace, Suit CardSuit = Clubs)
-		:m_Value(CardValue),m_Suit(CardSuit)
-		{}
-	
-	void Flip() { m_FaceUp == 0 ? m_FaceUp = 1 : m_FaceUp = 0; }
-	int32_t GetValue() const { return m_Value; }
-};
-
+#include "Card.cpp"
 
 class Hand
 {
-	private:
+	protected:
 		std::vector<Card*> m_Hand{};
 	public:
-		Hand(){std::cout << "Hand constructor" << std::endl;}
-		~Hand(){std::cout << "hand destructor" << std::endl;}
+		Hand() { m_Hand.clear(); }
+		~Hand(){}
 		void Clear()
 		{
 			std::vector<Card*> EmptyHand{};
@@ -99,27 +71,27 @@ class Hand
 		}
 };
 
-int main()
-{
-	Card card;
-	Card card1(Jack, Diamonds);
-	Card card2(Ace, Clubs);
-	Hand hand;
-	hand.PrintHand();
-
-	hand.Add(card);
-	hand.PrintHand();
-
-	hand.Add(card1);
-	hand.PrintHand();
-
-	hand.Add(card2);
-	hand.PrintHand();
-	std::cout << "Hand value: " << hand.GetValue() << std::endl;
-	hand.Clear();
-	hand.PrintHand();
-	
-
-	
-	return 0;
-}
+//int main()
+//{
+//	Card card;
+//	Card card1(Jack, Diamonds);
+//	Card card2(Ace, Clubs);
+//	Hand hand;
+//	hand.PrintHand();
+//
+//	hand.Add(card);
+//	hand.PrintHand();
+//
+//	hand.Add(card1);
+//	hand.PrintHand();
+//
+//	hand.Add(card2);
+//	hand.PrintHand();
+//	std::cout << "Hand value: " << hand.GetValue() << std::endl;
+//	hand.Clear();
+//	hand.PrintHand();
+//	
+//
+//	
+//	return 0;
+//}
