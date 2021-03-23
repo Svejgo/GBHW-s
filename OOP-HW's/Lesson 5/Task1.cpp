@@ -5,7 +5,7 @@ template <class T>
 
  class Pair1
 {
-	private:
+	private: 
 		 T m_First;
 		 T m_Second;
 	public:
