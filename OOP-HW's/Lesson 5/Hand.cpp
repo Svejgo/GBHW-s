@@ -69,7 +69,7 @@ class Hand
 					if(TempCard.GetValue() == Ace)
 					{
 						AceCheck = true;
-						++AceCounter;
+						++AceCounter; 
 					}
 				}
 				if(AceCheck && SumValue > 21)
