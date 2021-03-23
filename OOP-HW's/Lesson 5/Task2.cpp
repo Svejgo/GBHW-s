@@ -5,7 +5,7 @@ template <typename T, typename S>
 
 
 class Pair
-{
+{ 
 private:
 	T m_First;
 	S m_Second;
