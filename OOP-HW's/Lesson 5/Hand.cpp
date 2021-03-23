@@ -27,7 +27,7 @@ class Hand
 			{
 				return 0;
 			}
-			else
+			else 
 			{
 				int32_t SumValue = 0;
 				Card TempCard;
