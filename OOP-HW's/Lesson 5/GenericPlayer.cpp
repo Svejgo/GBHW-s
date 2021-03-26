@@ -14,13 +14,8 @@ public:
 	
 
 
-	virtual bool IsHitting(bool Need)
-	{
-		if (Need && GenericPlayer::GetValue() <= 21)
-			return 1;
-		else 
-			return 0;
-	}
+	virtual void IsHitting()
+	{}
 	bool IsBoosted()
 	{
 		if (GenericPlayer::GetValue() > 21)
