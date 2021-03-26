@@ -1,7 +1,7 @@
 #include <iostream>
 #include <cstdint>
 #include <vector>
-#include "../Card.h"
+#include "Card.h"
 
 
 class Hand

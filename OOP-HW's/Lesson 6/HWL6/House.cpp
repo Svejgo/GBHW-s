@@ -2,7 +2,7 @@
 #include <cstdint>
 #include <string>
 #include <cctype>
-#include "../HWL6/src/GenericPlayer.cpp"
+#include "GenericPlayer.cpp"
 
 
 class House : public GenericPlayer

@@ -1,13 +1,13 @@
 #include <iostream>
 #include <cstdint>
 #include <string>
-#include "../Card.h"
+#include "Card.h"
 
 
 enum Value;
 enum Suit;
 
-Card::Card(Value CardValue = Ace, Suit CardSuit = Clubs)
+Card::Card(Value CardValue, Suit CardSuit)
 {
 	m_Value = CardValue;
 	m_Suit = CardSuit;
@@ -15,15 +15,12 @@ Card::Card(Value CardValue = Ace, Suit CardSuit = Clubs)
 
 }
 
-void Card::Flip() { m_FaceUp == 0 ? m_FaceUp = 1 : m_FaceUp = 0; }
-bool Card::IsFlipped() const { return m_FaceUp; }
-int32_t Card::GetValue() const { return m_Value; }
 
 std::ostream& operator<< (std::ostream& out, const Card& card)
 {
 	if (card.IsFlipped())
 	{
-		out << card.m_Value << " " << card.m_Suit << '\n';
+		out << card.m_Value << " of " << card.m_Suit << '\n';
 		return out;
 	}
 	else
@@ -33,3 +30,12 @@ std::ostream& operator<< (std::ostream& out, const Card& card)
 	}
 }
 
+int main()
+{
+	Card card;
+	std::cout << card;
+	card.Flip();
+	std::cout << card;
+
+	return 1;
+}

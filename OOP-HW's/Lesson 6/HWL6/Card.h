@@ -1,6 +1,6 @@
 #include <cstdint>
 #include <string>
-#pragma once
+//#pragma once
 
 enum Value
 {
@@ -22,9 +22,10 @@ private:
 public:
 	Card(Value CardValue = Ace, Suit CardSuit = Clubs);
 
-	void Flip() {}
-	bool IsFlipped()const {}
-	int32_t GetValue()const {}
+	void Flip() { m_FaceUp == 0 ? m_FaceUp = 1 : m_FaceUp = 0; }
+	bool IsFlipped() const { return m_FaceUp; }
+	int32_t GetValue() const { return m_Value; }
+
 	friend std::ostream& operator<< (std::ostream& out, const Card& card);
 };
 

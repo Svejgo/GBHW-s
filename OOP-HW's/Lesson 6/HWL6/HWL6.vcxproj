@@ -139,6 +139,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Card.cpp" />
+    <ClCompile Include="GenericPlayer.cpp" />
+    <ClCompile Include="Hand.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="House.cpp" />
     <ClCompile Include="Task1.cpp" />
