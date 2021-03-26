@@ -40,17 +40,17 @@ public:
 
 };
 
-
-int main()
-{
-	GenericPlayer Pl1;
-	Card card(Jack,Diamonds);
-	Pl1.Add(card);
-	Pl1.Add(card);
-	Pl1.Add(card);
-	std::cout << Pl1.GetValue() << std::endl;
-	std::cout << Pl1.IsBoosted() << std::endl;
-	Pl1.Bust();
-
-	return 1;
-}
+//
+//int main()
+//{
+//	GenericPlayer Pl1;
+//	Card card(Jack,Diamonds);
+//	Pl1.Add(card);
+//	Pl1.Add(card);
+//	Pl1.Add(card);
+//	std::cout << Pl1.GetValue() << std::endl;
+//	std::cout << Pl1.IsBoosted() << std::endl;
+//	Pl1.Bust();
+//
+//	return 1;
+//}

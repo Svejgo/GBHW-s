@@ -20,25 +20,24 @@ public:
 
 };
 
-//template<class T>
-//class StringValuePair : Pair  // << here was C2955 - 'Pair': use of class template requires template argument list. Cant understand what (and how) arguments i need to write here
-//{
-//protected:
-//	std::string m_First;
-//	T m_Second;
-//public:
-//	StringValuePair<T>(std::string first, T second)
-//	:Pair<std::string, T>(first,second)
-//	{}
-//	std::string First() const { return m_First; }
-//	T Second() const { return m_Second; }
-//
-//};
 
 
-//int main()
-//{
-//	StringValuePair svp("Amazing", 7);
-//	std::cout << "Pair: " << svp.First() << ' ' << svp.Second() << '\n';
-//	return 0;
-//}
+template<class T>
+class StringValuePair : public Pair<std::string, T> 
+{
+protected:
+	std::string m_First;
+	T m_Second;
+public:
+	StringValuePair(std::string first, T second)
+	:Pair<std::string, T>(first,second)
+	{}
+};
+
+
+int main()
+{
+	StringValuePair<int32_t> svp("Amazing", 7);
+	std::cout << "Pair: " << svp.First() << ' ' << svp.Second() << '\n';
+	return 0;
+}
