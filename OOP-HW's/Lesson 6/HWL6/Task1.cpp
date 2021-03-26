@@ -1,16 +1,34 @@
-//Создать программу, которая считывает целое число типа int.И поставить «защиту от дурака» : если пользователь вводит что - то кроме одного целочисленного значения, 
-// нужно вывести сообщение об ошибке и предложить ввести число еще раз.Пример неправильных введенных строк :
-//rbtrb
-//nj34njkn
-//1n
+//was copied that funcion from lesson 6 and just look how does it work.
 
 #include <iostream>
 #include <cstdint>
+#include <cctype>
 
-
-int main()
+int32_t CheckTypeOfVar()
 {
-	 
-
-	return 1;
+	int32_t a = 0;
+	
+	while (true)
+	{
+		std::cout << "Input int number: " << std::endl;
+		std::cin >> a;
+		if (std::cin.fail())
+		{
+			std::cin.clear();
+			std::cin.ignore(32767, '\n');
+		}
+		else return a;
+	}
+	return 0;
 }
+
+
+
+//int main()
+//{
+//	std::cout << CheckTypeOfVar();
+//
+//
+//	
+//	return 1;
+//}

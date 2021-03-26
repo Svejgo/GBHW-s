@@ -63,7 +63,12 @@ class Hand
 				Card temp;
 				for(uint32_t i = 0; i < m_Hand.size(); i++)
 				{
-					temp = *m_Hand[i];					
+					temp = *m_Hand[i];
+					if (!temp.IsFlipped())
+					{
+						std::cout << "XX" << " ";
+					}
+					else
 					std::cout << temp.GetValue() <<" ";
 				}
 				std::cout << std::endl;
@@ -71,27 +76,3 @@ class Hand
 		}
 };
 
-//int main()
-//{
-//	Card card;
-//	Card card1(Jack, Diamonds);
-//	Card card2(Ace, Clubs);
-//	Hand hand;
-//	hand.PrintHand();
-//
-//	hand.Add(card);
-//	hand.PrintHand();
-//
-//	hand.Add(card1);
-//	hand.PrintHand();
-//
-//	hand.Add(card2);
-//	hand.PrintHand();
-//	std::cout << "Hand value: " << hand.GetValue() << std::endl;
-//	hand.Clear();
-//	hand.PrintHand();
-//	
-//
-//	
-//	return 0;
-//}
