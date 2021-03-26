@@ -64,11 +64,6 @@ class Hand
 				for(uint32_t i = 0; i < m_Hand.size(); i++)
 				{
 					temp = *m_Hand[i];
-					if (!temp.IsFlipped())
-					{
-						std::cout << "XX" << " ";
-					}
-					else
 					std::cout << temp.GetValue() <<" ";
 				}
 				std::cout << std::endl;

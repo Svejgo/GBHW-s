@@ -30,9 +30,24 @@ class Card
 	void Flip() { m_FaceUp == 0 ? m_FaceUp = 1 : m_FaceUp = 0; }
 	bool IsFlipped() const { return m_FaceUp; }
 	int32_t GetValue() const { return m_Value; }
+
+	friend std::ostream& operator<< (std::ostream& out, const Card& card);
+	
 };
 
-
+std::ostream& operator<< (std::ostream& out, const Card& card)
+{
+	if (card.IsFlipped())
+	{
+		out << card.m_Value << ' ' << card.m_Suit;
+		return out;
+	}
+	else
+	{
+		out << "XX";
+		return out;
+	}
+}
 
 
 

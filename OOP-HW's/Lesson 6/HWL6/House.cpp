@@ -37,15 +37,6 @@ public:
 
 int main()
 {
-	House house;
-	Card card;
-	Card card1(Jack,Clubs);
-	house.Add(card);
-	house.Add(card1);
-	std::cout << house.GetValue() << std::endl;
-	house.PrintHand();
-	house.FlipFirstCard();
-	house.PrintHand();
-
+	
 	return 1;
 }
