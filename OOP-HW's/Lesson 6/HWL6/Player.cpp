@@ -4,6 +4,7 @@
 #include <cctype>
 #include "../HWL6/src/GenericPlayer.cpp"
 
+
 class Player : public GenericPlayer
 {
 public:

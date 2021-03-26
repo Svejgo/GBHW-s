@@ -3,7 +3,7 @@
 #include <string>
 #include <cctype>
 #include "../HWL6/src/GenericPlayer.cpp"
-#include "../HWL6/src/Card.cpp"
+
 
 class House : public GenericPlayer
 {
@@ -35,8 +35,10 @@ public:
 };
 
 
-int main()
-{
-	
-	return 1;
-}
+//int main()
+//{
+//	House house;
+//	
+//	
+//	return 1;
+//}
