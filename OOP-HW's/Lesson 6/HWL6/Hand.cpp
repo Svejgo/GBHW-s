@@ -22,7 +22,7 @@ class Hand
 			m_Hand.push_back(&card);
 		}
 				
-		int32_t GetValue()
+		int32_t GetValue() const
 		{
 			if(m_Hand.size() == 0)
 			{

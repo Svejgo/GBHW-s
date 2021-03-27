@@ -20,7 +20,7 @@ std::ostream& operator<< (std::ostream& out, const Card& card)
 {
 	if (card.IsFlipped())
 	{
-		out << card.m_Value << " of " << card.m_Suit << '\n';
+		out << card.m_Value << " of " << card.m_Suit << '\n'; //searching solution how it print like "Ace of spades"
 		return out;
 	}
 	else
