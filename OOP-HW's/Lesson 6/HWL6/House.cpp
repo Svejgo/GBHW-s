@@ -13,9 +13,9 @@ public:
 	{}
 
 
-	virtual bool IsHitting() const //have some problems here, doesn't know how to check dealer hand value
+	virtual bool IsHitting() const 
 	{
-		if (1)
+		if (House::GetValue() < 17)
 		{
 			return 1;
 		}
