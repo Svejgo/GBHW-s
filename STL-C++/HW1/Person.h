@@ -4,7 +4,7 @@
 #include <tuple>
 #include <string>
 
-extern struct Person
+struct Person
 {
 	std::string Surname;
 	std::string Firstname;
@@ -14,3 +14,5 @@ extern struct Person
 	friend bool operator< (const Person& Left, const Person& Right);
 	friend bool operator== (const Person& Left, const Person& Right);
 };
+
+//extern _Persona Person;
