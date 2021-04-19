@@ -21,11 +21,11 @@ PhoneBook::PhoneBook(std::ifstream& file) //cant fill book with this constructor
 	}
 	if (file.is_open())
 	{
-		while (std::getline(file, str)) //?
+		while (std::getline(file, str,'\n')) //?
 		{
 			file >> person.Surname >> person.Firstname >> person.Secondname
 				>> phonenumber.CountryCode >> phonenumber.CityCode >> phonenumber.Number >> phonenumber.AdditionalNumber;
-
+			
 			m_Book.emplace_back(std::pair(person, phonenumber));
 		}
 	}
