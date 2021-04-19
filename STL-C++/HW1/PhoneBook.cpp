@@ -95,23 +95,18 @@ PhoneBook::~PhoneBook() {};
 
 	void PhoneBook::ChangePhoneNumber(Person& pers, PhoneNumber& pn) //C2451 exeption
 	{
-		//std::pair<Person, PhoneNumber> tPerson;
-		//auto result = std::find_if(m_Book.begin(), m_Book.end(), [&tPerson,pers,pn](const std::pair<Person, PhoneNumber>& person) mutable
-		//	{
-		//		if (person.first == pers)
-		//		{
-		//			tPerson.first = pers;
-		//			tPerson.second = pn;
-		//		}
-
-		//	});
-		//if (result == m_Book.end())
-		//{
-		//}
-		//else
-		//{
-		//	*result = tPerson;
-		//}
+		std::pair<Person, PhoneNumber> tPerson(pers,pn);
+		auto result = std::find_if(m_Book.begin(), m_Book.end(), [&tPerson,pers,pn](const std::pair<Person, PhoneNumber>& person) mutable
+			{
+				return person.first == pers;
+			});
+		if (result == m_Book.end())
+		{
+		}
+		else
+		{
+			*result = tPerson;
+		}
 	};
 
 

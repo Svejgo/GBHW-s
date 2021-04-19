@@ -4,7 +4,6 @@
 #include <string>
 #include "Person.h"
 
-//_Persona Person;
 
 std::ostream& operator<< (std::ostream& out, const Person& temp)
 {

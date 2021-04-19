@@ -45,7 +45,11 @@ int main()
 	};
 	print_phone_number("Zaitsev");
 
-																			
+	std::cout << "------------ChangePhoneNumber------------" << std::endl;
+	Person ps{ "Zaitsev", "Zakhar", "Artemovich" };
+	PhoneNumber pn{ 7, 123, 15344458 };
+	book.ChangePhoneNumber(ps,pn);
+	std::cout << book;
 
 	return 0;
 }
