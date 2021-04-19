@@ -48,7 +48,8 @@ PhoneBook::~PhoneBook() {};
 			{
 				return person1.first < person2.first;
 			});
-	}
+	};
+
 	void PhoneBook::SortByPhone()
 	{
 		std::sort(m_Book.begin(), m_Book.end(),
@@ -56,7 +57,7 @@ PhoneBook::~PhoneBook() {};
 			{
 				return person1.second < person2.second;
 			});
-	}
+	};
 
 	std::tuple<std::string, PhoneNumber> PhoneBook::GetPhoneNumber(std::string& Surname) const
 	{
@@ -82,15 +83,36 @@ PhoneBook::~PhoneBook() {};
 		{
 			answer = "Found more than 1";
 			std::memset(&tNumber, 0, sizeof(PhoneNumber));
-			return std::tuple<std::string, PhoneNumber>(answer,tNumber);
+			return std::tuple<std::string, PhoneNumber>(answer, tNumber);
 		}
 		else
-		{  
+		{
 			answer = "not found";
 			std::memset(&tNumber, 0, sizeof(PhoneNumber));
 			return std::tuple<std::string, PhoneNumber>(answer, tNumber);
 		}
-	}
+	};
+
+	void PhoneBook::ChangePhoneNumber(Person& pers, PhoneNumber& pn) //C2451 exeption
+	{
+		std::pair<Person, PhoneNumber> tPerson;
+		auto result = std::find_if(m_Book.begin(), m_Book.end(), [&tPerson,pers,pn](const std::pair<Person, PhoneNumber>& person) mutable
+			{
+				if (person.first == pers)
+				{
+					tPerson.first = pers;
+					tPerson.second = pn;
+				}
+
+			});
+		if (result == m_Book.end())
+		{
+		}
+		else
+		{
+			*result = tPerson;
+		}
+	};
 
 
 std::ostream& operator<< (std::ostream& out, PhoneBook& book)
@@ -104,5 +126,4 @@ std::ostream& operator<< (std::ostream& out, PhoneBook& book)
 		
 	}
 	return out;
-	//out << book.mBook.first << " - " << book.mBook.second;
 }
