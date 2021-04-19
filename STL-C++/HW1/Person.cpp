@@ -8,7 +8,11 @@
 
 std::ostream& operator<< (std::ostream& out, const Person& temp)
 {
-	out << temp.Surname << ' ' << temp.Firstname << ' ' << temp.Secondname;
+	out << temp.Surname << ' ' << temp.Firstname;
+		if (!(temp.Secondname == "-"))
+		{
+			out << ' ' << temp.Secondname;
+		}
 	return out;
 }
 
