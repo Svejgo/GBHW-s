@@ -8,4 +8,5 @@ struct PhoneNumber
 	int32_t Number{};
 	int32_t AdditionalNumber{};
 	friend std::ostream& operator<< (std::ostream& out, const PhoneNumber& temp);
+	friend bool operator< (const PhoneNumber& Left, const PhoneNumber& Right);
 };

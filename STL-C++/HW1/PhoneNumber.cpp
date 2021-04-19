@@ -16,6 +16,11 @@ std::ostream& operator<< (std::ostream& stream, const PhoneNumber& temp)
 
 	return stream;
 }
+ bool operator< (const PhoneNumber& Left, const PhoneNumber& Right)
+{
+	 return std::tie(Left.CountryCode, Left.CityCode, Left.Number, Left.AdditionalNumber) 
+		 < std::tie(Right.CountryCode, Right.CityCode, Right.Number, Right.AdditionalNumber);
+}
 
 //
 //int main()
