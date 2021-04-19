@@ -32,12 +32,19 @@ int main()
 	std::cout << "-------------sorted by name--------------" << std::endl;
 	book.SortByName();
 	std::cout << book;
-	std::cout << "-------------sorted by phone-------------" << std::endl;
+
+	std::cout << "-------------sorted by number------------" << std::endl;
 	book.SortByPhone();
 	std::cout << book;
 
-	std::tuple<std::string, PhoneNumber> pp(book.GetPhoneNumber("Zaitsev"));
-	std::cout << std::get<0>(pp) << " " << std::get<1>(pp) << std::endl;    
+	std::cout << "--------------GetPhoneNumber-------------" << std::endl;
+	auto print_phone_number = [book](const char* Surname) 
+	{
+		std::tuple<std::string, PhoneNumber> pp(book.GetPhoneNumber(Surname));
+		std::cout << std::get<0>(pp) << " " << std::get<1>(pp) << std::endl;	
+	};
+	print_phone_number("Zaitsev");
+
 																			
 
 	return 0;
