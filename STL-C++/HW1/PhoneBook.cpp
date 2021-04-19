@@ -7,47 +7,41 @@
 #include <algorithm>
 #include "Person.h"
 #include "PhoneNumber.h"
+#include "PhoneBook.h"
 
-class PhoneBook
+PhoneBook::PhoneBook(std::ifstream& file) //cant fill book with this constructor, multiple copies of first string
 {
-private:
-	std::vector<std::pair<Person, PhoneNumber>> m_Book{};
-
-public:
-
-	PhoneBook(std::ifstream& file)
+	Person person;
+	PhoneNumber phonenumber;
+	std::string str;
+	if (!file.good())
 	{
-		Person person;
-		PhoneNumber phonenumber;
-		std::string str;
-		if (!file.good())
-		{
-			std::cout << "File not found!" << std::endl;
-			system("pause");
-		}
-		if (file.is_open())
-		{
-			while (std::getline(file,str))
-			{
-				file >> person.Surname >> person.Firstname >> person.Secondname
-					>> phonenumber.CountryCode >> phonenumber.CityCode >> phonenumber.Number >> phonenumber.AdditionalNumber;
-
-				m_Book.emplace_back(std::pair(person, phonenumber));
-			}
-		}
-
-		file.close();
+		std::cout << "File not found!" << std::endl;
+		system("pause");
 	}
+	if (file.is_open())
+	{
+		while (std::getline(file, str)) //?
+		{
+			file >> person.Surname >> person.Firstname >> person.Secondname
+				>> phonenumber.CountryCode >> phonenumber.CityCode >> phonenumber.Number >> phonenumber.AdditionalNumber;
+
+			m_Book.emplace_back(std::pair(person, phonenumber));
+		}
+	}
+
+	file.close();
+};
 	
-	~PhoneBook(){}
+PhoneBook::~PhoneBook() {};
 	
-	void Add(Person& person, PhoneNumber& PN)
+	void PhoneBook::Add(Person& person, PhoneNumber& PN)  //used that method to fill book to test other methods
 	{
 		std::pair<Person, PhoneNumber> temp(person, PN);
 		m_Book.push_back(temp);
-	}
+	};
 
-	void SortByName()
+	void PhoneBook::SortByName()
 	{
 		std::sort(m_Book.begin(), m_Book.end(),
 			[](std::pair<Person, PhoneNumber> person1, std::pair<Person, PhoneNumber> person2)
@@ -55,7 +49,7 @@ public:
 				return person1.first < person2.first;
 			});
 	}
-	void SortByPhone()
+	void PhoneBook::SortByPhone()
 	{
 		std::sort(m_Book.begin(), m_Book.end(),
 			[](std::pair<Person, PhoneNumber> person1, std::pair<Person, PhoneNumber> person2)
@@ -64,7 +58,7 @@ public:
 			});
 	}
 
-	std::tuple<std::string, PhoneNumber> GetPhoneNumber(std::string& Surname) const
+	std::tuple<std::string, PhoneNumber> PhoneBook::GetPhoneNumber(std::string& Surname) const
 	{
 		std::string answer = "";
 		int32_t counter = 0;
@@ -99,10 +93,6 @@ public:
 	}
 
 
-
-	friend std::ostream& operator<< (std::ostream& out, PhoneBook& book);
-};
-
 std::ostream& operator<< (std::ostream& out, PhoneBook& book)
 {
 	std::pair<Person, PhoneNumber> tPair;
@@ -115,49 +105,4 @@ std::ostream& operator<< (std::ostream& out, PhoneBook& book)
 	}
 	return out;
 	//out << book.mBook.first << " - " << book.mBook.second;
-}
-
-int main()
-{
-	std::ifstream BookFile("PhoneBook.txt");
-	PhoneBook book(BookFile);
-	//PhoneBook book;
-	//Person John{ "Surname", "Name", "Lastname" };
-	//Person Tim{ "Dag", "Tim", "Osuyhhtin" };
-	//Person Sim{ "Sag", "Sim", "Sstiiin" };
-	//Person Dim{ "Dag", "Dim", "Dsuuutin" };
-	//Person Lim{ "Lag", "Lim", "Lsjtin" };
-	//PhoneNumber pn1{ +7,913,5920092 };
-	//PhoneNumber pn2{ +8,222,5555555,77 };
-	//PhoneNumber pn3{ +7,111,3334488 };
-	//PhoneNumber pn4{ +1,391,2050048 };
-	//PhoneNumber pn5{ +99,391,2050048 };
-	//
-
-	//book.Add(John, pn1);
-	//book.Add(Tim, pn2);
-	//book.Add(Sim, pn3);
-	//book.Add(Dim, pn4);
-	//book.Add(Lim, pn5);
-		
-
-	std::cout << book;
-	std::cout << "-------------sorted by name--------------" << std::endl;
-	book.SortByName();
-	std::cout << book;
-	std::cout << "-------------sorted by phone-------------" << std::endl;
-	book.SortByPhone();
-	std::cout << book;
-	std::string FindPerson = "Zaitsev";
-	std::cout << FindPerson << std::endl;
-	
-	std::tuple<std::string, PhoneNumber> pp(book.GetPhoneNumber(FindPerson));
-	std::cout << std::get<0>(pp) << " " << std::get<1>(pp) << std::endl;
-
-	//std::tuple<std::string, PhoneNumber> pp(book.GetPhoneNumber(FindPerson));
-	//std::cout << std::get<0>(pp) << " " << std::get<1>(pp) << std::endl;
-	
-
-
-	return 0;
 }
