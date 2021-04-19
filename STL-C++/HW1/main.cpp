@@ -38,7 +38,7 @@ int main()
 	std::string FindPerson = "Zaitsev";
 	std::cout << FindPerson << std::endl;
 
-	std::tuple<std::string, PhoneNumber> pp(book.GetPhoneNumber(FindPerson));//that's only how i make a find method, when tryed to GetNumber("Zaitsev")
+	std::tuple<std::string, PhoneNumber> pp(book.GetPhoneNumber("Zaitsev"));//that's only how i make a find method, when tryed to GetNumber("Zaitsev")
 	std::cout << std::get<0>(pp) << " " << std::get<1>(pp) << std::endl;    //just got 'E0434' error, about "a reference of type std::string& " cannot be
 																			//initialized with a value of type "const char[8]"
 

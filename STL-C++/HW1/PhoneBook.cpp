@@ -59,7 +59,7 @@ PhoneBook::~PhoneBook() {};
 			});
 	};
 
-	std::tuple<std::string, PhoneNumber> PhoneBook::GetPhoneNumber(std::string& Surname) const
+	std::tuple<std::string, PhoneNumber> PhoneBook::GetPhoneNumber(const char* Surname) const
 	{
 		std::string answer = "";
 		int32_t counter = 0;
@@ -95,23 +95,23 @@ PhoneBook::~PhoneBook() {};
 
 	void PhoneBook::ChangePhoneNumber(Person& pers, PhoneNumber& pn) //C2451 exeption
 	{
-		std::pair<Person, PhoneNumber> tPerson;
-		auto result = std::find_if(m_Book.begin(), m_Book.end(), [&tPerson,pers,pn](const std::pair<Person, PhoneNumber>& person) mutable
-			{
-				if (person.first == pers)
-				{
-					tPerson.first = pers;
-					tPerson.second = pn;
-				}
+		//std::pair<Person, PhoneNumber> tPerson;
+		//auto result = std::find_if(m_Book.begin(), m_Book.end(), [&tPerson,pers,pn](const std::pair<Person, PhoneNumber>& person) mutable
+		//	{
+		//		if (person.first == pers)
+		//		{
+		//			tPerson.first = pers;
+		//			tPerson.second = pn;
+		//		}
 
-			});
-		if (result == m_Book.end())
-		{
-		}
-		else
-		{
-			*result = tPerson;
-		}
+		//	});
+		//if (result == m_Book.end())
+		//{
+		//}
+		//else
+		//{
+		//	*result = tPerson;
+		//}
 	};
 
 
