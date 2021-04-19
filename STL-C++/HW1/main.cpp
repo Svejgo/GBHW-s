@@ -35,8 +35,6 @@ int main()
 	std::cout << "-------------sorted by phone-------------" << std::endl;
 	book.SortByPhone();
 	std::cout << book;
-	std::string FindPerson = "Zaitsev";
-	std::cout << FindPerson << std::endl;
 
 	std::tuple<std::string, PhoneNumber> pp(book.GetPhoneNumber("Zaitsev"));//that's only how i make a find method, when tryed to GetNumber("Zaitsev")
 	std::cout << std::get<0>(pp) << " " << std::get<1>(pp) << std::endl;    //just got 'E0434' error, about "a reference of type std::string& " cannot be
