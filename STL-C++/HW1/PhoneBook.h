@@ -24,7 +24,7 @@ public:
 
 	void SortByName();
 	void SortByPhone();
-	void ChangePhoneNumber(Person& person, PhoneNumber& phonenumber);
+	void ChangePhoneNumber(const Person& person, const PhoneNumber& phonenumber);
 
 	std::tuple<std::string, PhoneNumber> GetPhoneNumber(const char* Surname) const;
 	
