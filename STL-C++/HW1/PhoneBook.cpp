@@ -3,6 +3,7 @@
 #include <cstdint>
 #include <tuple>
 #include <string>
+#include <cstring>
 #include <vector>
 #include <algorithm>
 #include "Person.h"
@@ -14,6 +15,9 @@ PhoneBook::PhoneBook(std::ifstream& file) //cant fill book with this constructor
 	Person person;
 	PhoneNumber phonenumber;
 	std::string str;
+	std::vector<std::string> strvec;
+	char* tempstr;
+
 	if (!file.good())
 	{
 		std::cout << "File not found!" << std::endl;
@@ -21,12 +25,15 @@ PhoneBook::PhoneBook(std::ifstream& file) //cant fill book with this constructor
 	}
 	if (file.is_open())
 	{
-		while (std::getline(file, str,'\n')) //?
+		while (file) //?
 		{
-			file >> person.Surname >> person.Firstname >> person.Secondname
-				>> phonenumber.CountryCode >> phonenumber.CityCode >> phonenumber.Number >> phonenumber.AdditionalNumber;
+			std::getline(file, str,'\n'); //need to split sting and fill person and phonenumber
+			std::cout << str << std::endl; 
 			
-			m_Book.emplace_back(std::pair(person, phonenumber));
+			/*file >> person.Surname >> person.Firstname >> person.Secondname
+				>> phonenumber.CountryCode >> phonenumber.CityCode >> phonenumber.Number >> phonenumber.AdditionalNumber;
+
+			m_Book.emplace_back(std::pair(person, phonenumber));*/
 		}
 	}
 
