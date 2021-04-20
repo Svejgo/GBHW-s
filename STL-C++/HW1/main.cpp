@@ -26,7 +26,7 @@ int main()
 
 	std::cout << "------------ChangePhoneNumber------------" << std::endl;
 	book.ChangePhoneNumber(Person{ "Zaitsev","Zakhar","Artemovich" }, PhoneNumber{7, 123,15344458});
-	std::cout << book;
+	print_phone_number("Zaitsev");
 
 	return 0;
 }

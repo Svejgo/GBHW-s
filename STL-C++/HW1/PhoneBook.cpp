@@ -16,9 +16,7 @@ PhoneBook::PhoneBook(std::ifstream& file) //cant fill book with this constructor
 	Person person;
 	PhoneNumber phonenumber;
 	std::string str;
-	std::vector<std::string> strvec;
-	char* tempstr;
-
+		
 	if (!file.good())
 	{
 		std::cout << "File not found!" << std::endl;
