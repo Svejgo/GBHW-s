@@ -1,5 +1,6 @@
 #include <iostream>
 #include <fstream>
+#include <sstream>
 #include <cstdint>
 #include <tuple>
 #include <string>
@@ -28,13 +29,11 @@ PhoneBook::PhoneBook(std::ifstream& file) //cant fill book with this constructor
 		while (file) //?
 		{
 			std::getline(file, str,'\n'); //need to split sting and fill person and phonenumber 
-			std::cout << str << std::endl; 
-			
-			/*file >> person.Surname >> person.Firstname >> person.Secondname
+			std::istringstream iss(str);
+			iss >> person.Surname >> person.Firstname >> person.Secondname
 				>> phonenumber.CountryCode >> phonenumber.CityCode >> phonenumber.Number >> phonenumber.AdditionalNumber;
-
-			m_Book.emplace_back(std::pair(person, phonenumber));*/
-		}
+			m_Book.emplace_back(std::pair(person, phonenumber));
+			}
 	}
 
 	file.close();
