@@ -2,6 +2,7 @@
 #include <cstdint>
 #include <tuple>
 #include <string>
+#include <iomanip>
 #include "Person.h"
 
 
@@ -10,7 +11,7 @@ std::ostream& operator<< (std::ostream& out, const Person& temp)
 	out << temp.Surname << ' ' << temp.Firstname;
 		if (!(temp.Secondname == "-"))
 		{
-			out << ' ' << temp.Secondname;
+			out <<  ' ' << temp.Secondname;
 		}
 	return out;
 }

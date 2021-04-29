@@ -8,15 +8,15 @@ int main()
 	PhoneBook book(BookFile);
 
 	std::cout << book;
-	std::cout << "-------------sorted by name--------------" << std::endl;
+	std::cout << "\n-------------sorted by name--------------\n" << std::endl;
 	book.SortByName();
 	std::cout << book;
 
-	std::cout << "-------------sorted by number------------" << std::endl;
+	std::cout << "\n-------------sorted by number------------\n" << std::endl;
 	book.SortByPhone();
 	std::cout << book;
 
-	std::cout << "--------------GetPhoneNumber-------------" << std::endl;
+	std::cout << "\n--------------GetPhoneNumber-------------\n" << std::endl;
 	auto print_phone_number = [book](const char* Surname) 
 	{
 		std::tuple<std::string, PhoneNumber> pp(book.GetPhoneNumber(Surname));
@@ -24,9 +24,11 @@ int main()
 	};
 	print_phone_number("Zaitsev");
 
-	std::cout << "------------ChangePhoneNumber------------" << std::endl;
-	book.ChangePhoneNumber(Person{ "Zaitsev","Zakhar","Artemovich" }, PhoneNumber{7, 123,15344458});
-	print_phone_number("Zaitsev");
+	std::cout << "\n------------ChangePhoneNumber------------\n" << std::endl;
+	Person PS{ "Zaitsev","Zakhar","Artemovich" };
+	
+	book.ChangePhoneNumber(PS, PhoneNumber{7, 123,15344458});
+		print_phone_number("Zaitsev");
 
 	return 0;
 }

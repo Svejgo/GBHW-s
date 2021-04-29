@@ -7,11 +7,12 @@
 #include <cstring>
 #include <vector>
 #include <algorithm>
+#include <iomanip>
 #include "Person.h"
 #include "PhoneNumber.h"
 #include "PhoneBook.h"
 
-PhoneBook::PhoneBook(std::ifstream& file) //cant fill book with this constructor, multiple copies of first string
+PhoneBook::PhoneBook(std::ifstream& file) 
 {
 	Person person;
 	PhoneNumber phonenumber;
@@ -97,19 +98,22 @@ PhoneBook::~PhoneBook() {};
 		}
 	};
 
-	void PhoneBook::ChangePhoneNumber(const Person& pers,const  PhoneNumber& pn) //C2451 exeption
+	void PhoneBook::ChangePhoneNumber(const Person& pers, const PhoneNumber& pn) 
 	{
 		std::pair<Person, PhoneNumber> tPerson(pers,pn);
-		auto result = std::find_if(m_Book.begin(), m_Book.end(), [&tPerson,pers,pn](const std::pair<Person, PhoneNumber>& person) mutable
-			{
-				return person.first == pers;
-			});
+		auto it = [pers](const std::pair<Person, PhoneNumber>& person) -> bool
+		{
+			return person.first == pers;
+		};
+		auto result = std::find_if(m_Book.begin(), m_Book.end(), it);
 		if (result == m_Book.end())
 		{
+			std::cout << "not found" << std::endl;
 		}
 		else
-		{
-			*result = tPerson;
+		{			
+			std::cout << "finded" << std::endl;
+			//result = tPerson;
 		}
 	};
 
@@ -121,8 +125,10 @@ std::ostream& operator<< (std::ostream& out, PhoneBook& book)
 	for(uint32_t i = 0; i < book.m_Book.size(); i++)
 	{
 		tPair = book.m_Book[i];
-		out <<tPair.first << " - " << tPair.second << std::endl;
+		out << tPair.first << " - " <<tPair.second << std::endl;
 		
 	}
 	return out;
 }
+
+
