@@ -64,7 +64,7 @@ int32_t ForFor(const std::string& s)
 		for (char b : vowel)
 		{
 			if (a == b)
-			{
+			{ 
 				count++;
 			}
 		}

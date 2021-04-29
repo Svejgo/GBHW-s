@@ -24,7 +24,7 @@ void print(std::vector<T*>& vec)
 	for (auto i : vec)
 	{
 		std::cout << *i << ' ' << std::endl;
-	}
+	} 
 	std::cout << std::endl;
 }
 //
