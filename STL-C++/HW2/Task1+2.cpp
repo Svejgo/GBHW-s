@@ -9,7 +9,7 @@ void Swap(T* lhs, T* rhs)
 {
 	T ptemp = *lhs;
 	*lhs = *rhs;
-	*rhs = ptemp;	
+	*rhs = ptemp;
 }
 
 template <typename T>
@@ -24,10 +24,10 @@ void print(std::vector<T*>& vec)
 	for (auto i : vec)
 	{
 		std::cout << *i << ' ' << std::endl;
-	} 
+	}
 	std::cout << std::endl;
 }
-//
+
 //int main()
 //{
 //	int32_t a = 5;
@@ -40,7 +40,7 @@ void print(std::vector<T*>& vec)
 //	int32_t* pc = &c;
 //	int32_t* pd = &d;
 //
-//	std::vector <int32_t*> vec{pa,pb,pc,pd};
+//	std::vector <int32_t*> vec{ pa,pb,pc,pd };
 //
 //	print(vec);
 //	SortPointers(vec);

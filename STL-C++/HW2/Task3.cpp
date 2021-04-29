@@ -13,7 +13,7 @@ int32_t CountIfFind(const std::string& s)
 		[&vowel](char a)
 		{
 			auto result = std::find(vowel.begin(), vowel.end(), a);
-			return (result == std::end(vowel)) ?  0 : 1;
+			return (result == std::end(vowel)) ? 0 : 1;
 		});
 	timer.print();
 	return count;
@@ -29,7 +29,7 @@ int32_t CountIfFor(const std::string& s)
 			size_t result = 0;
 			for (char b : vowel)
 			{
-				if(a == b)
+				if (a == b)
 				{
 					result++;
 				}
@@ -45,11 +45,11 @@ int32_t ForFind(const std::string& s)
 	Timer timer("For + find");
 	std::vector<char> vowel{ 'À','à','Å','å','¨','¸','È','è','Î','î','Ó','ó','Û','û','Ý','ý','Þ','þ','ß','ÿ' };
 	size_t count = 0;
-	for(char a : s)
-		{
-			auto result = std::find(vowel.begin(), vowel.end(), a);
-			(result == std::end(vowel)) ? 0 : count++;
-		};
+	for (char a : s)
+	{
+		auto result = std::find(vowel.begin(), vowel.end(), a);
+		(result == std::end(vowel)) ? 0 : count++;
+	};
 	timer.print();
 	return count;
 }
@@ -64,7 +64,7 @@ int32_t ForFor(const std::string& s)
 		for (char b : vowel)
 		{
 			if (a == b)
-			{ 
+			{
 				count++;
 			}
 		}
@@ -76,7 +76,7 @@ int32_t ForFor(const std::string& s)
 int main()
 {
 	std::ifstream file("War and peace.txt");
-	file.seekg(0,std::ios::end);
+	file.seekg(0, std::ios::end);
 	size_t size = file.tellg();
 	file.seekg(0);
 	std::string s(size, ' ');
